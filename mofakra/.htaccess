@@ -1,0 +1,40 @@
+
+
+RewriteEngine on
+## Remove trailing slash if not directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^/  index.php [L]
+RewriteRule ^page-login/  page-login.php [NC,L]
+RewriteRule ^page-home/(.*)$ page-home.php?id=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^add-day-task/(.*)$ add-day-task.php?id=$1 [NC,L]
+RewriteRule ^add-main-task/(.*)$ add-main-task.php?id=$1 [NC,L]
+RewriteRule ^add-task/(.*)$ add-task.php?id=$1 [NC,L]
+RewriteRule ^add-project/(.*)$ add-project.php?id=$1 [NC,L]
+RewriteRule ^edit-day-task/(.*)/(.*)$ edit-day-task.php?taskid=$1&id=$2 [NC,L]
+RewriteRule ^edit-main-task/(.*)/(.*)$ edit-main-task.php?mainid=$1&id=$2 [NC,L]
+RewriteRule ^edit-task/(.*)/(.*)$ edit-task.php?subid=$1&id=$2 [NC,L]
+RewriteRule ^update-task/(.*)/(.*)/(.*)$ update-task.php?subid=$1&id=$2&status=$3 [NC,L]
+RewriteRule ^update-main-subtask/(.*)/(.*)/(.*)$ update-main-subtask.php?subid=$1&id=$2&status=$3 [NC,L]
+RewriteRule ^update-day-task/(.*)/(.*)/(.*)$ update-day-task.php?taskid=$1&id=$2&status=$3 [NC,L]
+RewriteRule ^update-day-home-task/(.*)/(.*)/(.*)$ update-day-home-task.php?taskid=$1&id=$2&status=$3 [NC,L]
+RewriteRule ^update-home-task/(.*)/(.*)/(.*)$ update-home-task.php?subid=$1&id=$2&status=$3 [NC,L]
+RewriteRule ^edit-project/(.*)/(.*)$ edit-project.php?projectid=$1&id=$2 [NC,L]
+RewriteRule ^details-project/(.*)/(.*)$ details-project.php?projectid=$1&id=$2 [NC,L]
+RewriteRule ^details-tasks/(.*)/(.*)$ details-tasks.php?mainid=$1&id=$2 [NC,L]
+RewriteRule ^projects/(.*)/(.*)$ projects.php?id=$1&category=$2 [NC,L]
+RewriteRule ^category/(.*)$ category.php?id=$1 [NC,L]
+RewriteRule ^page-day-tasks/(.*)$ page-day-tasks.php?id=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^page-main-tasks/(.*)$ page-main-tasks.php?id=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^page-all/(.*)$ page-all.php?id=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^page-tasks/(.*)$ page-tasks.php?id=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^filter-day/(.*)$ filter-day.php?id=$1&%{QUERY_STRING} [NC,L]
+
+
+php_flag display_errors 1
+
+
+
+Header always set Content-Security-Policy "upgrade-insecure-requests;"
+SetEnv ID Asia/Amman

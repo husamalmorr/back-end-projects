@@ -1,0 +1,21 @@
+{
+ 
+  "name": "مفكرتي", 
+  "display": "standalone",
+  "theme_color":"#ff4f2c",
+  "background_color":"#ff4f2c",
+    "title_bar_color": "#ff4f2c",
+	"window_decoration_color": "#ff4f2c",
+	  "display_override": [ "window-controls-overlay" ],
+
+    "scope": "https://juclinic.000webhostapp.com/",
+ "start_url": "https://juclinic.000webhostapp.com/",
+  "offline_enabled":"true",
+  "icons": [
+      {
+        "src": "img/title.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+   ]
+}
